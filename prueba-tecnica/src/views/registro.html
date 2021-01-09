@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina de inicio | Login </title>
+
+    <!-- Fuentes de Google-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap" rel="stylesheet">
+
+    <!-- Importamos bootstrap -->
+    <link rel="stylesheet" href="/Css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/Css/estiloRegistro.css">
+
+
+</head>
+<body>
+
+<div id="appPrincipal">
+    <div class="container" id="container">
+        <div v-if="opcionRegistro">
+            <div class="form-container sign-in-container">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="/Img/registroCliente.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col">
+                        <div class="mt-2">
+                            <h3><b>REGISTRO DE NUEVO USUARIO</b></h3>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="cedula">*Digite su cedula</label>
+                                    <input type="text" id="cedula" placeholder="Digite su cedula" v-model="usuario.cedula">
+                                </div>
+                                <div class="col">
+                                    <label for="nombre">*Digite el nombre</label>
+                                    <input type="text" id="nombre" placeholder="Digite su nombre" v-model="usuario.nombre">
+                                </div>
+                                <div class="col">
+                                    <label for="apellido">*Digite el apellido</label>
+                                    <input type="text" id="apellido" placeholder="Digite su apellido" v-model="usuario.apellidos">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="telefono">*Digite el num. Telefono</label>
+                        <input type="text" id="telefono" placeholder="(57) 999-9999999" v-model="usuario.telefono">
+                    </div>
+                    <div class="col">
+                        <label for="fijo">Digite telefono fijo</label>
+                        <input type="text" id="fijo" placeholder="(57) 999-9999999">
+                    </div>
+                    <div class="col">
+                        <label for="direccion">*Digite su direccion</label>
+                        <input type="text" id="direccion" placeholder="Direccion" v-model="usuario.direccion">
+                    </div>
+                    <div class="col">
+                        <label for="ciudad">*Digite su Ciudad</label>
+                        <input type="text" id="ciudad" placeholder="Ciudad" v-model="usuario.ciudad">
+                    </div>
+                </div>
+                <hr />
+                <h3><b>REGISTRO DE USUARIO Y CONTRASEÑA</b></h3>
+                <div class="row">
+                    <div class="col">
+                        <label for="username">*Digite Username</label>
+                        <input type="text" id="username" placeholder="Digite su usuario" v-model="usuario.username">
+                    </div>
+                    <div class="col">
+                        <label for="password">*Digite la contraseña</label>
+                        <input type="password" id="password" placeholder="Digite una contraseña" v-model="usuario.password">
+                    </div>
+                    <div class="col">
+                        <label for="verificar">*Verifique su contraseña</label>
+                        <input type="password" id="verificar" placeholder="Digite su contraseña">
+                    </div>
+                </div>
+                <hr />
+                <div class="w-100">
+                    <button v-on:click="registroUsuario" id="inicarSesion">Iniciar Sesion</button>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <div class="form-container sign-in-container">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="/Img/registroCliente.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="col">
+                        <div class="mt-2">
+                            <h3><b>REGISTRO DE SU TARJETA</b></h3>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="numeroTarjeta">*Digite numero tarjeta</label>
+                                    <input type="text" id="numeroTarjeta" placeholder="Digite numero tarjeta" v-model="tarjeta.numero_tarjeta">
+                                </div>
+                                <div class="col">
+                                    <label for="nombreTarjeta">*Digite el nombre tarjeta</label>
+                                    <input type="text" id="nombreTarjeta" placeholder="Digite su nombre tarjeta" v-model="tarjeta.nombre_tarjeta">
+                                </div>
+                                <div class="col">
+                                    <label for="expedida">*Fecha de expedicion</label>
+                                    <input type="date" id="expedida" v-model="tarjeta.expedida">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="vencimiento">*Fecha de vencimiento</label>
+                        <input type="date" id="vencimiento" v-model="tarjeta.vencimiento">
+                    </div>
+                    <div class="col">
+                        <label for="expedidor">Nombre Expedidor</label>
+                        <input type="text" id="expedidor" placeholder="Nbre de expedidos" v-model="tarjeta.expedidor">
+                    </div>
+                </div>
+                <hr />
+                <div class="w-100">
+                    <button v-on:click="registroTarjeta" id="registroTarjeta">Registrar Tarjeta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Libreria de Vuejs -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<!-- Libreia de Axios -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js "></script>
+
+<script type="text/javascript" src="/Js/Vuejs/registro.js"></script>
+
+</body>
+</html>

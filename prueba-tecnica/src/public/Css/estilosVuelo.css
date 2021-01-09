@@ -1,0 +1,12 @@
+
+.bg-cover {
+    background-size: cover !important;
+}
+body {
+    min-height: 100vh;
+}
+
+.card {
+    box-shadow: 0 0 10px 1px rgba(0,0,0, .7);
+    transition: .5s all ease;
+}

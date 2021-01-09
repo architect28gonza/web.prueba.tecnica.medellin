@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina de inicio | Login </title>
+
+    <!-- Fuentes de Google-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap" rel="stylesheet">
+
+    <!-- Importamos bootstrap -->
+    <link rel="stylesheet" href="/Css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/Css/estiloLogin.css">
+
+
+</head>
+<body>
+
+    <div id="appPrincipal">
+
+        <h3 class="mb-4">LOGIN PRINCIPAL</h3>
+        <div class="container" id="container">
+            <div class="form-container sign-in-container">
+                <form method="POST">
+                    <h1>Iniciar sesion</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>Si aun no ha creado una cuenta haga click en <b>Registrar</b></span>
+                    <input type="text" name="username" placeholder="Digite su nombre de usuario" />
+                    <input type="password" name="password" placeholder="Digite su contraseña" />
+                    <a href="#">¿Olvido su contraseña?</a>
+                    <button id="inicarSesion">Iniciar Sesion</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>BIENVENIDO/A</h1>
+                        <p>Si no se encuentra registrado, entonces haga click en <b>Registrarse</b> para agregar sus datos</p>
+                        <button onclick="window.location.href='/oauth/registro'" class="ghost" id="signUp">Registrarse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/Js/Vuejs/login.js"></script>
+
+</body>
+</html>

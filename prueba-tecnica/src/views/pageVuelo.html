@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido </title>
+
+    <!-- Fuentes de Google-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap" rel="stylesheet">
+
+    <!-- Importamos bootstrap -->
+    <link rel="stylesheet" href="/Css/bootstrap.min.css">
+
+    <!-- Importamos un Css que necesitamos -->
+    <link rel="stylesheet" href="/Css/estilosVuelo.css">
+
+</head>
+<body>
+
+    <div id="appPrincipal">
+        <% if(user) { %>
+        <div style="background: url(https://i.postimg.cc/3N7wnb75/background.jpg)" class="jumbotron bg-cover text-white">
+            <div class="container py-5 text-center">
+                <h1 class="display-4 font-weight-bold">BIENVENIDO/A <b><%= user.username.toUpperCase()  %></b> A SU SISTEMA DE RESERVACION DE VUELO</h1>
+                <p class="font-italic mb-0">Bienvenido, aqui podra realizar las diferentes actividades como compra de boletos, estado de vuelo y mucho mas </p>
+                <a href="/oauth/cerrar" role="button" class="btn btn-primary px-5">Cerrar Sesion</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="w-100 text-center">
+                <h3>{{tituloActividades}} <div v-if="actividades===0 || actividades===1"><button v-on:click="actividades--" class="btn  btn-outline-primary float-right">Ir atras</button></div> </h3>
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Escaja algunas de las 3 opciones para realizar su actividades o consultas sobre los vuelos
+                </small>
+            </div>
+            <hr />
+            <div v-if="actividades === -1">
+                <div class="row">
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header p-0">
+                                <img class="img-fluid" src="/Img/consultaVuelo.png" style="height: 185px" >
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Consulta de vuelos</h5>
+                                <p class="card-text">Haga click en <b>Consultar</b> para ver la informacion </p>
+                                <button v-on:click="consultar" class="btn btn-outline-dark btn-block">Consultar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header p-0">
+                                <img class="img-fluid" src="/Img/tarifaVuelo.png" style="height: 185px" alt="Card image cap">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Reservacion de vuelos</h5>
+                                <p class="card-text">Haga click en <b>Reservacion</b> para realizar una reserva</p>
+                                <button v-on:click="reserva" class="btn btn-outline-dark btn-block">Realizar reservas</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header p-0">
+                                <img class="img-fluid" src="/Img/estadoVuelo.png" style="height: 185px" alt="Card image cap">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Estado de vuelos</h5>
+                                <p class="card-text">Haga click en <b>Ver estados</b> para realizar una reserva </p>
+                                <button class="btn btn-outline-dark btn-block">Ver estados</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="actividades === 0">
+                <consulta_vuelos></consulta_vuelos>
+            </div>
+
+
+        </div>
+
+        <div v-if="actividades === 1">
+            <realizar_reserva :cedula="'<%=user.cedula %>'"
+                              :nombre="'<%= user.nombre %>'"
+                              :apellido="'<%= user.apellidos %>'"></realizar_reserva>
+        </div>
+
+        <hr />
+        <% } else { %>
+            <div class="container">
+                <div class=" mt-4">
+                    <div class="card-header">
+                        <h3>No tiene permisos de entrar a esta ruta</h3>
+                    </div>
+                    <div class="card-body">
+                        <img src="/Img/error.png" style="height: 500px" class="img-fluid" alt="">
+                    </div>
+                </div>
+            </div>
+        <% }  %>
+    </div>
+
+
+    <!-- Libreria de Vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- Libreia de Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js "></script>
+
+    <script src="/Js/alerts/sweetalert2@10.js"></script>
+
+
+    <script type="module" src="/Js/Vuejs/app.js"></script>
+
+
+</body>
+</html>
